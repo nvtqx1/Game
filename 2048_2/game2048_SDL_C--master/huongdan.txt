@@ -1,0 +1,9 @@
+vao file Debug/2048.exe de choi
+
+Nhung chuc nang dã làm duoc
+Xây dung duoc menu game 
+Tu design anh bang pts
+load duoc anh và âm thanh cho game
+Luu diem cao nhat cua nguoi choi
+Có huong dan choi và cách tính diem
+Xu lý su kien chuot và bàn phím thao tác click và bam di chuyen cho game

@@ -1,0 +1,3 @@
+﻿  SDL_utils.cpp
+D:\2048\2048\SDL_utils.cpp(214): warning C4715: 'Loadfile': not all control paths return a value
+  2048.vcxproj -> D:\2048\Debug\2048.exe
