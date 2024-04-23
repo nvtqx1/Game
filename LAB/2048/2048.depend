@@ -45,12 +45,12 @@
 1713803585 source:e:\game\lab\2048\gameover.cpp
 	"GameOver.h"
 
-1713847660 source:e:\game\lab\2048\game.cpp
+1713848324 source:e:\game\lab\2048\game.cpp
 	"Game.h"
 
 1713803834 source:e:\game\lab\2048\screenstart.cpp
 	"screenStart.h"
 
-1713848230 source:e:\game\lab\2048\sdl_utils.cpp
+1713848599 source:e:\game\lab\2048\sdl_utils.cpp
 	"SDL_utils.h"
 

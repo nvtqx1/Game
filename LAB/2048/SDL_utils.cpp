@@ -22,7 +22,6 @@ SDL_Texture* g_object4096 = NULL;
 SDL_Event g_event;
 SDL_Texture* score = NULL;
 SDL_Texture* best = NULL;
-
 TTF_Font* font = NULL;
 SDL_Color textColor = { 170, 105, 35 };
 SDL_Color textBest = { 170, 105, 35 };
@@ -80,8 +79,6 @@ void ApplySurface(SDL_Texture* src, SDL_Renderer* des, int x, int y)
     SDL_QueryTexture(src, NULL, NULL, &offset.w, &offset.h);
     SDL_RenderCopy(des, src, NULL, &offset);
 }
-
-
 void CleanUp()
 {
     SDL_DestroyRenderer(g_renderer);
@@ -102,8 +99,6 @@ void CleanUp()
 	IMG_Quit();
 
 }
-
-
 
 int Loadfile()
 {
@@ -217,7 +212,7 @@ int Loadfile()
         return 0;
     }
 
-    return 1; // Return 1 if everything loaded successfully
+    return 1;
 }
 
 
@@ -227,19 +222,19 @@ void printScore(int k)
     s << k;
     std::string text = s.str();
 
-    SDL_Color textColor = { 255, 255, 255, 255 }; // Assuming the color of the text is white
+    SDL_Color textColor = { 255, 255, 255, 255 };
     SDL_Surface* textSurface = TTF_RenderText_Solid(font, text.c_str(), textColor);
     if (textSurface == NULL)
     {
         return;
     }
     SDL_Texture* textTexture = SDL_CreateTextureFromSurface(g_renderer, textSurface);
-    SDL_FreeSurface(textSurface); // Don't forget to free the surface after creating the texture
+    SDL_FreeSurface(textSurface);
 
-    SDL_Rect renderQuad = { 915, 110, textSurface->w, textSurface->h }; // Assuming you want to render at (915, 110) and the width and height of the texture is the same as the text surface
+    SDL_Rect renderQuad = { 915, 110, textSurface->w, textSurface->h };
     SDL_RenderCopy(g_renderer, textTexture, NULL, &renderQuad);
 
-    SDL_DestroyTexture(textTexture); // Don't forget to free the texture
+    SDL_DestroyTexture(textTexture);
 }
 
 
