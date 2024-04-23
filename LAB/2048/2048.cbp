@@ -32,7 +32,19 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="Game.cpp" />
+		<Unit filename="Game.h" />
+		<Unit filename="GameOver.cpp" />
+		<Unit filename="GameOver.h" />
+		<Unit filename="SDL_utils.cpp" />
+		<Unit filename="SDL_utils.h" />
+		<Unit filename="commonFunction.cpp" />
+		<Unit filename="commonFunction.h" />
+		<Unit filename="control.cpp" />
+		<Unit filename="control.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="screenStart.cpp" />
+		<Unit filename="screenStart.h" />
 		<Extensions />
 	</Project>
 </CodeBlocks_project_file>

@@ -1,9 +1,16 @@
-#include <iostream>
+#include "screenStart.h"
+#include "Game.h"
 
-using namespace std;
+#undef main
 
-int main()
-{
-    cout << "Hello world!" << endl;
-    return 0;
+int main(int arc, char* argv[]) {
+	if (Init() == false)
+	{
+		return 0;
+	}
+	if(Loadfile() == true){
+	screenStart();
+	CleanUp();
+	}
+	return 0;
 }
