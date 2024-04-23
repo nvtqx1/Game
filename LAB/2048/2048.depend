@@ -13,7 +13,7 @@
 	"commonFunction.h"
 	"SDL_utils.h"
 
-1713808242 e:\game\lab\2048\sdl_utils.h
+1713848352 e:\game\lab\2048\sdl_utils.h
 	<Windows.h>
 	<sstream>
 	<string>
@@ -23,7 +23,7 @@
 	<SDL_mixer.h>
 	"commonFunction.h"
 
-1713807450 source:e:\game\lab\2048\main.cpp
+1713847660 source:e:\game\lab\2048\main.cpp
 	"screenStart.h"
 	"Game.h"
 
@@ -45,12 +45,12 @@
 1713803585 source:e:\game\lab\2048\gameover.cpp
 	"GameOver.h"
 
-1713806047 source:e:\game\lab\2048\game.cpp
+1713847660 source:e:\game\lab\2048\game.cpp
 	"Game.h"
 
 1713803834 source:e:\game\lab\2048\screenstart.cpp
 	"screenStart.h"
 
-1713805762 source:e:\game\lab\2048\sdl_utils.cpp
+1713848230 source:e:\game\lab\2048\sdl_utils.cpp
 	"SDL_utils.h"
 

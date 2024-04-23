@@ -7,7 +7,7 @@ SDL_Texture* g_screenStart = NULL;
 SDL_Texture* g_rank = NULL;
 SDL_Texture* g_guide = NULL;
 SDL_Texture* g_gameOver = NULL;
-/*SDL_Texture* g_object2 = NULL;
+SDL_Texture* g_object2 = NULL;
 SDL_Texture* g_object4 = NULL;
 SDL_Texture* g_object8 = NULL;
 SDL_Texture* g_object16 = NULL;
@@ -19,11 +19,10 @@ SDL_Texture* g_object512 = NULL;
 SDL_Texture* g_object1024 = NULL;
 SDL_Texture* g_object2048 = NULL;
 SDL_Texture* g_object4096 = NULL;
-*/
 SDL_Event g_event;
-/*SDL_Texture* score = NULL;
+SDL_Texture* score = NULL;
 SDL_Texture* best = NULL;
-*/
+
 TTF_Font* font = NULL;
 SDL_Color textColor = { 170, 105, 35 };
 SDL_Color textBest = { 170, 105, 35 };
@@ -31,136 +30,6 @@ std::string text;
 Mix_Chunk* sound_01 = NULL;
 Mix_Music* soundGameOver = NULL;
 
-class LTexture
-{
-public:
-	LTexture();
-	~LTexture();
-	bool LoadImage(std::string path);
-	void free();
-	void render(int x, int y);
-	int getWidth();
-	int getHeight();
-	#if defined(SDL_TTF_MAJOR_VERSION)
-
-		bool loadFromRenderedText(std::string textureText, SDL_Color textColor);
-	#endif
-private:
-	SDL_Texture* mTexture;
-	int mWidth;
-	int mHeight;
-};
-LTexture g_object2, g_object4, g_object8, g_object16, g_object32, g_object64, g_object128,g_object256, g_object512, g_object1024, g_object2048, g_object4096;
-LTexture g_Background;
-LTexture g_score, g_best;
-
-LTexture::LTexture()
-{
-	mTexture = NULL;
-	mWidth = 0;
-	mHeight = 0;
-}
-
-//Destruction
-LTexture::~LTexture()
-{
-	free();
-}
-
-//Load image from file
-bool LTexture::LoadImage(std::string path)
-{
-	free();
-	SDL_Texture* newTexture = NULL;
-	SDL_Surface* loadedSurface = IMG_Load(path.c_str());
-	if (loadedSurface == NULL)
-	{
-		printf("Unable to load image %s! SDL_image Error: %s\n", path.c_str(), IMG_GetError());
-	}
-	else
-	{
-		SDL_SetColorKey(loadedSurface, SDL_TRUE, SDL_MapRGB(loadedSurface->format, 0, 0xFF, 0xFF));
-		newTexture = SDL_CreateTextureFromSurface(g_renderer, loadedSurface);
-		if (newTexture == NULL)
-		{
-			printf("Unable to create texture from %s! SDL Error: %s\n", path.c_str(), SDL_GetError());
-		}
-		else
-		{
-			mWidth = loadedSurface->w;
-			mHeight = loadedSurface->h;
-		}
-		SDL_FreeSurface(loadedSurface);
-	}
-	mTexture = newTexture;
-	return mTexture != NULL;
-}
-void LTexture::free()
-{
-	if (mTexture != NULL)
-	{
-		SDL_DestroyTexture(mTexture);
-		mTexture = NULL;
-		mWidth = 0;
-		mHeight = 0;
-	}
-}
-//Upload image to window at given coordinates
-void LTexture::render(int x, int y)
-{
-	//Set rendering space and render to screen
-	SDL_Rect renderQuad = { x, y, mWidth, mHeight };
-	SDL_RenderCopy(g_renderer, mTexture, NULL, &renderQuad);
-}
-
-//Take the size
-int LTexture::getWidth()
-{
-	return mWidth;
-}
-
-int LTexture::getHeight()
-{
-	return mHeight;
-}
-
-//Load an image from a text
-#if defined(SDL_TTF_MAJOR_VERSION)
-bool LTexture::loadFromRenderedText(std::string textureText, SDL_Color textColor)
-{
-	//Get rid of preexisting texture
-	free();
-
-	//Render text surface
-	SDL_Surface* textSurface = TTF_RenderText_Solid(font, textureText.c_str(), textColor);
-	if (textSurface != NULL)
-	{
-		//Create texture from surface pixels
-		mTexture = SDL_CreateTextureFromSurface(g_renderer, textSurface);
-		if (mTexture == NULL)
-		{
-			printf("Unable to create texture from rendered text! SDL Error: %s\n", SDL_GetError());
-		}
-		else
-		{
-			//Get image dimensions
-			mWidth = textSurface->w;
-			mHeight = textSurface->h;
-		}
-
-		//Get rid of old surface
-		SDL_FreeSurface(textSurface);
-	}
-	else
-	{
-		printf("Unable to render text surface! SDL_ttf Error: %s\n", TTF_GetError());
-	}
-
-
-	//Return success
-	return mTexture != NULL;
-}
-#endif
 bool Init()
 {
     if (SDL_Init(SDL_INIT_EVERYTHING) != 0)
@@ -192,36 +61,29 @@ bool Init()
 
     return true;
 }
+SDL_Texture* LoadImage(std::string file_path)
+{
+    SDL_Texture* newTexture = NULL;
+    SDL_Surface* loadedSurface = IMG_Load(file_path.c_str());
+    if (loadedSurface != NULL)
+    {
+        newTexture = SDL_CreateTextureFromSurface(g_renderer, loadedSurface);
+        SDL_FreeSurface(loadedSurface);
+    }
+    return newTexture;
+}
+void ApplySurface(SDL_Texture* src, SDL_Renderer* des, int x, int y)
+{
+    SDL_Rect offset;
+    offset.x = x;
+    offset.y = y;
+    SDL_QueryTexture(src, NULL, NULL, &offset.w, &offset.h);
+    SDL_RenderCopy(des, src, NULL, &offset);
+}
+
+
 void CleanUp()
 {
-	g_object2.free();
-	g_object4.free();
-	g_object8.free();
-	g_object16.free();
-	g_object32.free();
-	g_object64.free();
-	g_object128.free();
-	g_object256.free();
-	g_object512.free();
-	g_object1024.free();
-	g_object2048.free();
-	g_object4096.free();
-	g_Background.free();
-	g_score.free();
-	g_best.free();
-	SDL_DestroyTexture(g_rank);
-    SDL_DestroyTexture(g_guide);
-	SDL_DestroyRenderer(g_renderer);
-	SDL_DestroyWindow(g_window);
-	Mix_FreeMusic(soundGameOver);
-	Mix_FreeChunk(sound_01);
-	TTF_CloseFont(font);
-	//Quit SDL subsystems
-	TTF_Quit();
-	Mix_Quit();
-	IMG_Quit();
-	SDL_Quit();
-    /*
     SDL_DestroyRenderer(g_renderer);
     SDL_DestroyTexture(g_background);
     SDL_DestroyTexture(g_screenStart);
@@ -235,36 +97,16 @@ void CleanUp()
     Mix_FreeMusic(soundGameOver);
     Mix_CloseAudio();
     SDL_Quit();
-    */
+    TTF_Quit();
+	Mix_Quit();
+	IMG_Quit();
+
 }
 
 
 
-bool Loadfile()
+int Loadfile()
 {
-    bool success = true;
-    g_background = LoadImage("ImageGame/background.png");
-    g_screenStart = LoadImage("ImageGame/screenStart.png");
-    g_rank = LoadImage("ImageGame/rank.png");
-    g_guide = LoadImage("ImageGame/guide.png");
-    g_gameOver = LoadImage("ImageGame/gameOver.png");
-    g_object2 = LoadImage("ImageGame/2.png");
-    g_object4 = LoadImage("ImageGame/4.png");
-    g_object8 = LoadImage("ImageGame/8.png");
-    g_object16 = LoadImage("ImageGame/16.png");
-    g_object32 = LoadImage("ImageGame/32.png");
-    g_object64 = LoadImage("ImageGame/64.png");
-    g_object128 = LoadImage("ImageGame/128.png");
-    g_object256 = LoadImage("ImageGame/256.png");
-    g_object512 = LoadImage("ImageGame/512.png");
-    g_object1024 = LoadImage("ImageGame/1024.png");
-    g_object2048 = LoadImage("ImageGame/2048.png");
-    g_object4096 = LoadImage("ImageGame/4096.png");
-    font = TTF_OpenFont("FontText/fast99.ttf", 90);
-    sound_01 = Mix_LoadWAV("Sound/medium.wav");
-    soundGameOver = Mix_LoadMUS("Sound/SoundGameOver.wav");
-    return success;
-    /*
     g_background = LoadImage("ImageGame/background.png");
     if (g_background == NULL)
     {
@@ -376,7 +218,6 @@ bool Loadfile()
     }
 
     return 1; // Return 1 if everything loaded successfully
-    */
 }
 
 

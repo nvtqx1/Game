@@ -24,29 +24,57 @@ void startGame()
                 int u = i;
                 int v = j;
                 location(u, v);
-                SDL_Texture* currentTexture = NULL;
-                switch(boardGame[i][j])
-                {
-                    case 2: currentTexture = g_object2; break;
-                    case 4: currentTexture = g_object4; break;
-                    case 8: currentTexture = g_object8; break;
-                    case 16: currentTexture = g_object16; break;
-                    case 32: currentTexture = g_object32; break;
-                    case 64: currentTexture = g_object64; break;
-                    case 128: currentTexture = g_object128; break;
-                    case 256: currentTexture = g_object256; break;
-                    case 512: currentTexture = g_object512; break;
-                    case 1024: currentTexture = g_object1024; break;
-                    case 2048: currentTexture = g_object2048; break;
-                    case 4096: currentTexture = g_object4096; break;
-                }
-                if(currentTexture != NULL)
-                {
-                    SDL_Rect renderQuad = { u, v, /* width and height of the texture */ };
-                    SDL_RenderCopy(g_renderer, currentTexture, NULL, &renderQuad);
-                }
-            }
-        }
+                if (boardGame[i][j] == 2)
+				{
+					ApplySurface(g_object2, g_renderer, u, v);
+				}
+				if (boardGame[i][j] == 4)
+				{
+					ApplySurface(g_object4, g_renderer, u, v);
+				}
+				if (boardGame[i][j] == 8)
+				{
+					ApplySurface(g_object8, g_renderer, u, v);
+				}
+				if (boardGame[i][j] == 16)
+				{
+					ApplySurface(g_object16, g_renderer, u, v);
+				}
+				if (boardGame[i][j] == 32)
+				{
+					ApplySurface(g_object32, g_renderer, u, v);
+				}
+				if (boardGame[i][j] == 64)
+				{
+					ApplySurface(g_object64, g_renderer, u, v);
+				}
+				if (boardGame[i][j] == 128)
+				{
+					ApplySurface(g_object128, g_renderer, u, v);
+				}
+				if (boardGame[i][j] == 256)
+				{
+					ApplySurface(g_object256, g_renderer, u, v);
+				}
+				if (boardGame[i][j] == 512)
+				{
+					ApplySurface(g_object512, g_renderer, u, v);
+				}
+				if (boardGame[i][j] == 1024)
+				{
+					ApplySurface(g_object1024, g_renderer, u, v);
+				}
+				if (boardGame[i][j] == 2048)
+				{
+					ApplySurface(g_object2048, g_renderer, u, v);
+				}
+				if (boardGame[i][j] == 4096)
+				{
+					ApplySurface(g_object4096, g_renderer, u, v);
+				}
+			}
+		}
+
         while (SDL_PollEvent(&g_event))
 		{
 			if (g_event.type == SDL_QUIT)

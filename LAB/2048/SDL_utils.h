@@ -18,7 +18,7 @@ extern SDL_Texture* g_screenStart;
 extern SDL_Texture* g_rank;
 extern SDL_Texture* g_guide;
 extern SDL_Texture* g_gameOver;
-/*extern SDL_Texture* g_object2;
+extern SDL_Texture* g_object2;
 extern SDL_Texture* g_object4;
 extern SDL_Texture* g_object8;
 extern SDL_Texture* g_object16;
@@ -33,7 +33,6 @@ extern SDL_Texture* g_object4096;
 extern SDL_Event g_event;
 extern SDL_Texture* score;
 extern SDL_Texture* best;
-*/
 extern TTF_Font* font;
 extern SDL_Color textColor;
 extern SDL_Color textBest;
@@ -43,7 +42,7 @@ extern Mix_Music* soundGameOver;
 
 bool Init();
 SDL_Texture* LoadImage(std::string file_path);
-//void ApplySurface(SDL_Surface* src, SDL_Surface* des, int x, int y);
+void ApplySurface(SDL_Texture* src, SDL_Renderer* des, int x, int y);
 void CleanUp();
 int Loadfile();
 void printScore(int k);
