@@ -54,3 +54,58 @@
 1713888589 source:e:\game\lab\2048\sdl_utils.cpp
 	"SDL_utils.h"
 
+1713936304 source:c:\university\game\lab\2048\commonfunction.cpp
+	"commonFunction.h"
+
+1713936046 c:\university\game\lab\2048\commonfunction.h
+	<Windows.h>
+	<time.h>
+
+1713936046 source:c:\university\game\lab\2048\control.cpp
+	"control.h"
+
+1713936046 c:\university\game\lab\2048\control.h
+	"commonFunction.h"
+	"SDL_utils.h"
+
+1713936304 c:\university\game\lab\2048\sdl_utils.h
+	<Windows.h>
+	<sstream>
+	<string>
+	<SDL.h>
+	<SDL_image.h>
+	<SDL_ttf.h>
+	<SDL_mixer.h>
+	"commonFunction.h"
+
+1713936304 source:c:\university\game\lab\2048\game.cpp
+	"Game.h"
+
+1713936046 c:\university\game\lab\2048\game.h
+	"SDL_utils.h"
+	"control.h"
+	"GameOver.h"
+
+1713936046 c:\university\game\lab\2048\gameover.h
+	<fstream>
+	"SDL_utils.h"
+	"screenStart.h"
+
+1713936046 c:\university\game\lab\2048\screenstart.h
+	<fstream>
+	"SDL_utils.h"
+	"Game.h"
+
+1713936046 source:c:\university\game\lab\2048\gameover.cpp
+	"GameOver.h"
+
+1713936046 source:c:\university\game\lab\2048\main.cpp
+	"screenStart.h"
+	"Game.h"
+
+1713936046 source:c:\university\game\lab\2048\screenstart.cpp
+	"screenStart.h"
+
+1713936304 source:c:\university\game\lab\2048\sdl_utils.cpp
+	"SDL_utils.h"
+
