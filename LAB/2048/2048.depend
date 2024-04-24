@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1556429020 source:e:\game\lab\2048\commonfunction.cpp
+1713889745 source:e:\game\lab\2048\commonfunction.cpp
 	"commonFunction.h"
 
 1556429020 e:\game\lab\2048\commonfunction.h
@@ -13,7 +13,7 @@
 	"commonFunction.h"
 	"SDL_utils.h"
 
-1713848352 e:\game\lab\2048\sdl_utils.h
+1713888491 e:\game\lab\2048\sdl_utils.h
 	<Windows.h>
 	<sstream>
 	<string>
@@ -45,12 +45,12 @@
 1713803585 source:e:\game\lab\2048\gameover.cpp
 	"GameOver.h"
 
-1713848324 source:e:\game\lab\2048\game.cpp
+1713890511 source:e:\game\lab\2048\game.cpp
 	"Game.h"
 
-1713803834 source:e:\game\lab\2048\screenstart.cpp
+1713890534 source:e:\game\lab\2048\screenstart.cpp
 	"screenStart.h"
 
-1713848599 source:e:\game\lab\2048\sdl_utils.cpp
+1713888589 source:e:\game\lab\2048\sdl_utils.cpp
 	"SDL_utils.h"
 

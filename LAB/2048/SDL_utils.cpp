@@ -28,7 +28,7 @@ SDL_Color textBest = { 170, 105, 35 };
 std::string text;
 Mix_Chunk* sound_01 = NULL;
 Mix_Music* soundGameOver = NULL;
-
+Mix_Music* sound_02 = NULL;
 bool Init()
 {
     if (SDL_Init(SDL_INIT_EVERYTHING) != 0)
@@ -92,6 +92,7 @@ void CleanUp()
     TTF_Quit();
     Mix_FreeChunk(sound_01);
     Mix_FreeMusic(soundGameOver);
+    Mix_FreeMusic(sound_02);
     Mix_CloseAudio();
     SDL_Quit();
     TTF_Quit();
@@ -211,10 +212,14 @@ int Loadfile()
     {
         return 0;
     }
+    sound_02 = Mix_LoadMUS("Sound/music.mpeg");
+    if (sound_02 == NULL)
+    {
+        return 0;
+    }
 
     return 1;
 }
-
 
 void printScore(int k)
 {

@@ -12,10 +12,10 @@ int SCREEN_BPP = 32;
 
 void init_gameBoard()
 {
-	gameScore = 0;
-	for (int i = 0; i < 4; i++) 
+	//gameScore = 0;
+	for (int i = 0; i < 4; i++)
 	{
-		for (int j = 0; j < 4; j++) 
+		for (int j = 0; j < 4; j++)
 		{
 			boardGame[i][j] = 0;
 		}
@@ -37,11 +37,11 @@ void init_gameBoard()
 
 bool checkGame()
 {
-	for (int i = 0; i < 4; i++) 
+	for (int i = 0; i < 4; i++)
 	{
-		for (int j = 0; j < 4; j++) 
+		for (int j = 0; j < 4; j++)
 		{
-			if (boardGame[i][j] == 0) 
+			if (boardGame[i][j] == 0)
 			{
 				return true;
 			}
@@ -53,11 +53,11 @@ bool checkGame()
 
 bool checkGameOver()
 {
-	if (checkGame() == false) 
+	if (checkGame() == false)
 	{
-		for (int i = 0; i < 4; i++) 
+		for (int i = 0; i < 4; i++)
 		{
-			for (int j = 0; j < 4; j++) 
+			for (int j = 0; j < 4; j++)
 			{
 				if (boardGame[i][j] == boardGame[i][j + 1] ||
 					boardGame[i][j] == boardGame[i + 1][j]) return false;
@@ -76,11 +76,11 @@ void addTile()
 	int i, j;
 	srand(time(NULL));
 
-	do 
+	do
 	{
 		i = rand() % 4;
 		j = rand() % 4;
-	} 
+	}
 	while (boardGame[i][j] != 0);
 	int s = rand() % 100;
 	if (s > 80) boardGame[i][j] = 4;
@@ -89,9 +89,9 @@ void addTile()
 
 void copyCheck()
 {
-	for (int i = 0; i < 4; i++) 
+	for (int i = 0; i < 4; i++)
 	{
-		for (int j = 0; j < 4; j++) 
+		for (int j = 0; j < 4; j++)
 		{
 			boardCheck[i][j] = boardGame[i][j];
 		}
@@ -100,9 +100,9 @@ void copyCheck()
 
 bool checkMove()
 {
-	for (int i = 0; i < 4; i++) 
+	for (int i = 0; i < 4; i++)
 	{
-		for (int j = 0; j < 4; j++) 
+		for (int j = 0; j < 4; j++)
 		{
 			if (boardCheck[i][j] != boardGame[i][j]) return true;
 		}
@@ -112,82 +112,82 @@ bool checkMove()
 
 void location(int& u, int& v)
 {
-	if (u == 0 && v == 0) 
+	if (u == 0 && v == 0)
 	{
 		u = 210.5;
 		v = 150.5;
 	}
-	else if (u == 0 && v == 1) 
+	else if (u == 0 && v == 1)
 	{
 		u = 317.5;
 		v = 150.5;
 	}
-	else if (u == 0 && v == 2) 
+	else if (u == 0 && v == 2)
 	{
 		u = 424.17;
 		v = 150.5;
 	}
-	else if (u == 0 && v == 3) 
+	else if (u == 0 && v == 3)
 	{
 		u = 531;
 		v = 150.5;
 	}
-	else if (u == 1 && v == 0) 
+	else if (u == 1 && v == 0)
 	{
 		u = 210.5;
 		v = 257;
 	}
-	else if (u == 1 && v == 1) 
+	else if (u == 1 && v == 1)
 	{
 		u = 317.5;
 		v = 257;
 	}
-	else if (u == 1 && v == 2) 
+	else if (u == 1 && v == 2)
 	{
 		u = 424.17;
 		v = 257;
 	}
-	else if (u == 1 && v == 3) 
+	else if (u == 1 && v == 3)
 	{
 		u = 531;
 		v = 257;
 	}
-	else if (u == 2 && v == 0) 
+	else if (u == 2 && v == 0)
 	{
 		u = 210.5;
 		v = 363.6;
 	}
-	else if (u == 2 && v == 1) 
+	else if (u == 2 && v == 1)
 	{
 		u = 317.5;
 		v = 363.6;
 	}
-	else if (u == 2 && v == 2) 
+	else if (u == 2 && v == 2)
 	{
 		u = 424.17;
 		v = 363.6;
 	}
-	else if (u == 2 && v == 3) 
+	else if (u == 2 && v == 3)
 	{
 		u = 531;
 		v = 363.6;
 	}
-	else if (u == 3 && v == 0) 
+	else if (u == 3 && v == 0)
 	{
 		u = 210.5;
 		v = 470.1;
 	}
-	else if (u == 3 && v == 1) 
+	else if (u == 3 && v == 1)
 	{
 		u = 317.5;
 		v = 470.1;
 	}
-	else if (u == 3 && v == 2) 
+	else if (u == 3 && v == 2)
 	{
 		u = 424.17;
 		v = 470.1;
 	}
-	else if (u == 3 && v == 3) 
+	else if (u == 3 && v == 3)
 	{
 		u = 531;
 		v = 470.1;

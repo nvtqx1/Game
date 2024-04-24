@@ -8,6 +8,9 @@ void startGame()
     init_gameBoard();
     while (!quit)
     {
+        if (Mix_PlayingMusic() == 0){
+            Mix_PlayMusic(sound_02, -1);
+        }
         if (checkGameOver() == true)
         {
             gameOver();
@@ -83,6 +86,7 @@ void startGame()
 			}
 			if (g_event.type == SDL_MOUSEBUTTONDOWN)
 			{
+
 				if (g_event.button.button == SDL_BUTTON_LEFT)
 				{
 					x = g_event.button.x;
@@ -90,6 +94,7 @@ void startGame()
 
 					if ((x > 25) && (x < 137) && (y > 24) && (y < 98))
 					{
+					    Mix_HaltMusic();
 						screenStart();
 					}
 				}
@@ -104,7 +109,23 @@ void startGame()
 				case SDLK_DOWN: Down(); break;
 				case SDLK_LEFT: Left(); break;
 				case SDLK_RIGHT: Right(); break;
-				}
+				case SDLK_m:
+                        if (Mix_PlayingMusic() == 0)
+                        {
+                            Mix_PlayMusic(sound_02, -1);
+                        }
+                        else
+                        {
+                            if (Mix_PausedMusic() == 1)
+                            {
+                                Mix_ResumeMusic();
+                            }
+                            else
+                            {
+                                Mix_PauseMusic();
+                            }
+                        }
+                    }
 				printScore(gameScore);
 				if (checkMove() == true)
 				{

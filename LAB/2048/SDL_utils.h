@@ -39,10 +39,12 @@ extern SDL_Color textBest;
 extern std::string text;
 extern Mix_Chunk* sound_01;
 extern Mix_Music* soundGameOver;
+extern Mix_Music* sound_02;
 
 bool Init();
 SDL_Texture* LoadImage(std::string file_path);
 void ApplySurface(SDL_Texture* src, SDL_Renderer* des, int x, int y);
+void handleMusic(SDL_Keycode keycode, Mix_Music* g_Music);
 void CleanUp();
 int Loadfile();
 void printScore(int k);
