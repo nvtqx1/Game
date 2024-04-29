@@ -7,19 +7,18 @@ void screenStart()
     SDL_RenderCopy(g_renderer, g_screenStart, NULL, NULL);
     while (!quit)
     {
-        SDL_Event e;
-        while (SDL_PollEvent(&e) != 0)
+        while (SDL_PollEvent(&g_event) != 0)
         {
-            if (e.type == SDL_QUIT)
+            if (g_event.type == SDL_QUIT)
             {
                 exit(1);
             }
-            else if (e.type == SDL_MOUSEBUTTONDOWN)
+            else if (g_event.type == SDL_MOUSEBUTTONDOWN)
             {
-                if (e.button.button == SDL_BUTTON_LEFT)
+                if (g_event.button.button == SDL_BUTTON_LEFT)
                 {
-                    x = e.button.x;
-                    y = e.button.y;
+                    x = g_event.button.x;
+                    y = g_event.button.y;
 
                     if ((x > 515) && (x < 770) && (y > 302) && (y < 386))
                     {
@@ -74,6 +73,16 @@ void rank()
                     }
                 }
             }
+            if (g_event.type == SDL_KEYDOWN)
+			{
+				SDL_RenderCopy(g_renderer, g_guide, NULL, NULL);
+
+				switch (g_event.key.keysym.sym)
+				{
+				case SDLK_ESCAPE:
+					 screenStart();
+				}
+            }
         }
         SDL_RenderPresent(g_renderer);
     }
@@ -88,25 +97,35 @@ void guide()
     SDL_RenderCopy(g_renderer, g_guide, NULL, NULL);
     while (!quit)
     {
-        SDL_Event e;
-        while (SDL_PollEvent(&e) != 0)
+        while (SDL_PollEvent(&g_event) != 0)
         {
-            if (e.type == SDL_QUIT)
+            if (g_event.type == SDL_QUIT)
             {
                 exit(1);
             }
-            else if (e.type == SDL_MOUSEBUTTONDOWN)
+            else if (g_event.type == SDL_MOUSEBUTTONDOWN)
             {
-                if (e.button.button == SDL_BUTTON_LEFT)
+                if (g_event.button.button == SDL_BUTTON_LEFT)
                 {
-                    x = e.button.x;
-                    y = e.button.y;
+                    x = g_event.button.x;
+                    y = g_event.button.y;
 
                     if ((x > 28) && (x < 163) && (y > 35) && (y < 125))
                     {
                         screenStart();
                     }
                 }
+
+            }
+            if (g_event.type == SDL_KEYDOWN)
+			{
+				SDL_RenderCopy(g_renderer, g_guide, NULL, NULL);
+
+				switch (g_event.key.keysym.sym)
+				{
+				case SDLK_ESCAPE:
+					 screenStart();
+				}
             }
         }
         SDL_RenderPresent(g_renderer);

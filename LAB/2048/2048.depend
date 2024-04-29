@@ -54,14 +54,14 @@
 1713888589 source:e:\game\lab\2048\sdl_utils.cpp
 	"SDL_utils.h"
 
-1713936304 source:c:\university\game\lab\2048\commonfunction.cpp
+1714402164 source:c:\university\game\lab\2048\commonfunction.cpp
 	"commonFunction.h"
 
 1713936046 c:\university\game\lab\2048\commonfunction.h
 	<Windows.h>
 	<time.h>
 
-1713936046 source:c:\university\game\lab\2048\control.cpp
+1714397762 source:c:\university\game\lab\2048\control.cpp
 	"control.h"
 
 1713936046 c:\university\game\lab\2048\control.h
@@ -78,7 +78,7 @@
 	<SDL_mixer.h>
 	"commonFunction.h"
 
-1713936304 source:c:\university\game\lab\2048\game.cpp
+1714403130 source:c:\university\game\lab\2048\game.cpp
 	"Game.h"
 
 1713936046 c:\university\game\lab\2048\game.h
@@ -103,7 +103,7 @@
 	"screenStart.h"
 	"Game.h"
 
-1713936046 source:c:\university\game\lab\2048\screenstart.cpp
+1714403603 source:c:\university\game\lab\2048\screenstart.cpp
 	"screenStart.h"
 
 1713936304 source:c:\university\game\lab\2048\sdl_utils.cpp

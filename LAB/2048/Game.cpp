@@ -109,34 +109,38 @@ void startGame()
 				case SDLK_DOWN: Down(); break;
 				case SDLK_LEFT: Left(); break;
 				case SDLK_RIGHT: Right(); break;
+                case SDLK_ESCAPE: screenStart(); break;
 				case SDLK_m:
-                        if (Mix_PlayingMusic() == 0)
+                    if (Mix_PlayingMusic() == 0)
+                    {
+                        Mix_PlayMusic(sound_02, -1);
+                    }
+                    else
+                    {
+                        if (Mix_PausedMusic() == 1)
                         {
-                            Mix_PlayMusic(sound_02, -1);
+                            Mix_ResumeMusic();
                         }
                         else
                         {
-                            if (Mix_PausedMusic() == 1)
-                            {
-                                Mix_ResumeMusic();
-                            }
-                            else
-                            {
-                                Mix_PauseMusic();
-                            }
+                            Mix_PauseMusic();
                         }
                     }
+                }
 				printScore(gameScore);
 				if (checkMove() == true)
 				{
-					if (Mix_PlayChannel(-1, sound_01, 0) == -1)
+					if (Mix_PlayChannel(1, sound_01, 0) == -1)
 					{
 						return;
 					}
 					addTile();
 				}
+				if (checkMove() == true && Mix_PausedMusic() == true) Mix_HaltChannel(1);
+
 			}
 		}
+
         SDL_RenderPresent(g_renderer);
     }
 }
