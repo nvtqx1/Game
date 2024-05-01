@@ -78,7 +78,7 @@
 	<SDL_mixer.h>
 	"commonFunction.h"
 
-1714403130 source:c:\university\game\lab\2048\game.cpp
+1714548656 source:c:\university\game\lab\2048\game.cpp
 	"Game.h"
 
 1713936046 c:\university\game\lab\2048\game.h
@@ -103,7 +103,7 @@
 	"screenStart.h"
 	"Game.h"
 
-1714403603 source:c:\university\game\lab\2048\screenstart.cpp
+1714548573 source:c:\university\game\lab\2048\screenstart.cpp
 	"screenStart.h"
 
 1713936304 source:c:\university\game\lab\2048\sdl_utils.cpp

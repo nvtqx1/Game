@@ -109,7 +109,7 @@ void startGame()
 				case SDLK_DOWN: Down(); break;
 				case SDLK_LEFT: Left(); break;
 				case SDLK_RIGHT: Right(); break;
-                case SDLK_ESCAPE: screenStart(); break;
+                case SDLK_ESCAPE: { Mix_HaltMusic();screenStart();break;}
 				case SDLK_m:
                     if (Mix_PlayingMusic() == 0)
                     {
