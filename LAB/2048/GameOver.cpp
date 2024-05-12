@@ -42,6 +42,17 @@ void gameOver()
                     }
                 }
             }
+            if (g_event.type == SDL_KEYDOWN)
+			{
+				//SDL_RenderCopy(g_renderer, g_guide, NULL, NULL);
+				switch (g_event.key.keysym.sym)
+				{
+				case SDLK_ESCAPE:{
+                     Mix_HaltMusic();
+					 screenStart();
+                    }
+				}
+            }
         }
         SDL_RenderPresent(g_renderer);
     }

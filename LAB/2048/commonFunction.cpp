@@ -12,7 +12,7 @@ int SCREEN_BPP = 32;
 
 void init_gameBoard()
 {
-	//gameScore = 0;
+	gameScore = 0;
 	for (int i = 0; i < 4; i++)
 	{
 		for (int j = 0; j < 4; j++)
