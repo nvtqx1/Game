@@ -8,9 +8,8 @@ int main(int arc, char* argv[]) {
 	{
 		return 0;
 	}
-	if(Loadfile() == true){
+	Loadfile();
 	screenStart();
 	CleanUp();
-	}
 	return 0;
 }
